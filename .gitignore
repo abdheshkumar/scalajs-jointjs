@@ -1,0 +1,12 @@
+target/
+.cache
+node_modules
+js/app.dep.js
+js/app/js
+.classpath
+.project
+.settings/
+/.idea/
+/../target
+/.idea_modules/
+project/target
