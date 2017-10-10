@@ -3,9 +3,7 @@ package chs
 import japgolly.scalajs.react.extra.router.{BaseUrl, Redirect, Router, RouterConfigDsl}
 import org.scalajs.dom
 
-import scala.scalajs.js.JSApp
-
-object RouterApp extends JSApp {
+object RouterApp {
 
   val config = RouterConfigDsl[AppPage].buildConfig {
     dsl =>
@@ -18,7 +16,7 @@ object RouterApp extends JSApp {
 
   val router: Router[AppPage] = Router(baseUrl, config)
 
-  override def main(): Unit = {
+  def main(args: Array[String]): Unit = {
     router().renderIntoDOM(dom.document.getElementById("playground"))
   }
 

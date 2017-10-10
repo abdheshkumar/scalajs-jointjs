@@ -1,3 +1,8 @@
+window.jQuery = require('jquery');
+require('lodash');
+require('backbone');
+window.joint = require("jointjs");
+window.V = window.joint.V;
 window.ReactDOM = require('react-dom');
 window.React = require('react');
 window.mui = require("material-ui");
