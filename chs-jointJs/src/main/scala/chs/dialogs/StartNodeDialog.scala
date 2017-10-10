@@ -7,7 +7,7 @@ import japgolly.scalajs.react.vdom.TagOf
 import japgolly.scalajs.react.vdom.html_<^._
 import japgolly.scalajs.react.{BackendScope, Callback, CallbackTo, ReactFocusEventFromInput, ScalaComponent}
 import joint.shapes.devs.NodeMetadata
-import joint.{CallbackDebug, Props}
+import joint.Props
 import ngage.sdk.graph.node.PlayNodeData
 import org.scalajs.dom.html.Div
 
@@ -36,6 +36,9 @@ object StartNodeDialog {
         p.cellView.map(_.model.attributes.nodeMetadata = new NodeMetadata(Base64.getEncoder.encodeToString(S.nodeData.toByteArray)))
       } >> Callback.info("Submit Clicked")
 
+    def onRequestClose(isClose: Boolean) = Callback {
+
+    }
 
     private val actions = (p: Props, S: State) => js.Array(
       MuiFlatButton(key = "1",
@@ -54,7 +57,7 @@ object StartNodeDialog {
           title = "Start Node Dialog",
           actions = actions(P, S),
           open = S.isOpen,
-          onRequestClose = CallbackDebug.f1("onRequestClose")
+          onRequestClose = js.defined(onRequestClose)
         )(
           <.div(
             MuiTextField(

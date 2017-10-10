@@ -6,7 +6,7 @@ import chandu0101.scalajs.react.components.materialui.{MuiDialog, MuiFlatButton,
 import japgolly.scalajs.react._
 import japgolly.scalajs.react.vdom.html_<^._
 import joint.shapes.devs.NodeMetadata
-import joint.{CallbackDebug, Props}
+import joint.Props
 import ngage.sdk.graph.node.PlayNodeData
 
 import scala.scalajs.js
@@ -33,6 +33,9 @@ object GatherNodeDialog {
         p.cellView.map(_.model.attributes.nodeMetadata = new NodeMetadata(Base64.getEncoder.encodeToString(S.nodeData.toByteArray)))
       } >> Callback.info("Submit Clicked")
 
+    def onRequestClose(isClose: Boolean) = Callback {
+
+    }
 
     val actions = (p: Props, S: State) => js.Array(
       MuiFlatButton(key = "1",
@@ -51,7 +54,7 @@ object GatherNodeDialog {
           title = "Gather Node Dialog",
           actions = actions(P, S),
           open = S.isOpen,
-          onRequestClose = CallbackDebug.f1("onRequestClose")
+          onRequestClose = js.defined(onRequestClose)
         )(
           <.div(
             MuiTextField(
