@@ -23,8 +23,8 @@ object DiagramUtility {
       linkPinning = false
       validateConnection = js.defined(validateConnections(graph))
       validateMagnet = js.defined(validateMagnets(graph))
-      //elementView = js.Dynamic.global.chs.views.BaseNodeView//.asInstanceOf[ElementView]
-      //cellViewNamespace = "chs.views"
+      elementView = js.Dynamic.global.joint.shapes.chs.BaseNodeView//.asInstanceOf[ElementView]
+      cellViewNamespace = "joint.shapes.chs"
     })
   }
 
