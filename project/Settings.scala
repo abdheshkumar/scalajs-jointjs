@@ -30,7 +30,7 @@ object Settings {
   /** Dependencies for external JS libs that are bundled into a single .js file according to dependency order */
   val jsDependencies = Def.setting(Seq())
 
-  /** Dependencies only used by the JVM project */
+  /** Dependencies only used by the ScalaJs project */
   val scalajsDependencies = Def.setting(Seq(
     "org.scala-js" %%% "scalajs-dom" % versions.scalaDom,
     "be.doeraene" %%% "scalajs-jquery" % versions.scalaDom,
@@ -38,8 +38,10 @@ object Settings {
     "com.github.japgolly.scalajs-react" %%% "extra" % versions.scalajsReact,
     "com.lihaoyi" %%% "scalatags" % versions.scalaTags,
     "com.olvind" %%% "scalajs-react-components" % "0.8.0",
-    "com.lihaoyi" %%% "utest" % versions.uTest % "test",
+    "com.lihaoyi" %%% "utest" % versions.uTest % "test"
+  ))
+  /** Dependencies only used by the JVM project */
+  val chsDependencies = Def.setting(Seq(
     "com.chs" %%% "com.chs.protocols" % "0.01"
   ))
-
 }

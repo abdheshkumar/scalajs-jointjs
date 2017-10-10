@@ -19,7 +19,7 @@ lazy val `chs-jointJs` = (project in file("chs-jointJs"))
   .settings(name := "chs-jointJs")
   .settings(commonSettings)
   .settings(
-    libraryDependencies ++= Settings.scalajsDependencies.value
+    libraryDependencies ++= Settings.scalajsDependencies.value ++ Settings.chsDependencies.value
   ).dependsOn(joint).enablePlugins(ScalaJSPlugin)
 
 lazy val `chs-web-app` = (project in file("."))
